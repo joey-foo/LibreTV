@@ -1,7 +1,7 @@
-# MalinTV - 免费在线视频搜索与观看平台
+# LibreTV - 免费在线视频搜索与观看平台
 
 <div align="center">
-  <img src="image/logo.png" alt="MalinTV Logo" width="120">
+  <img src="image/logo.png" alt="LibreTV Logo" width="120">
   <br>
   <p><strong>自由观影，畅享精彩</strong></p>
 </div>
@@ -19,7 +19,7 @@ LibreTV 是一个轻量级、免费的在线视频搜索与观看平台，提供
 
 ## 🚀 快速部署
 
-选择以下任一平台，点击一键部署按钮，即可快速创建自己的 MalinTV 实例：
+选择以下任一平台，点击一键部署按钮，即可快速创建自己的 LibreTV 实例：
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FLibreSpark%2FLibreTV)  
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/LibreSpark/LibreTV)  
@@ -70,7 +70,7 @@ Pull Bot 会反复触发无效的 PR 和垃圾邮件，严重干扰项目维护�
 ### Docker
 ```
 docker run -d \
-  --name Malintv \
+  --name Libretv \
   --restart unless-stopped \
   -p 8899:8080 \
   -e PASSWORD=your_password \
@@ -83,16 +83,16 @@ docker run -d \
 
 ```yaml
 services:
-  Malintv:
-    image: bestzwei/Malintv:latest
-    container_name: Malintv
+  Libretv:
+    image: bestzwei/Libretv:latest
+    container_name: Libretv
     ports:
       - "8899:8080" # 将内部 8080 端口映射到主机的 8899 端口
     environment:
       - PASSWORD=${PASSWORD:-111111} # 可将 111111 修改为你想要的密码，默认为 your_password
     restart: unless-stopped
 ```
-启动 MalinTV：
+启动 LibreTV：
 
 ```bash
 docker compose up -d
@@ -127,7 +127,7 @@ npm run dev
 
 ### API兼容性
 
-MalinTV 支持标准的苹果 CMS V10 API 格式。添加自定义 API 时需遵循以下格式：
+LibreTV 支持标准的苹果 CMS V10 API 格式。添加自定义 API 时需遵循以下格式：
 - 搜索接口: `https://example.com/api.php/provide/vod/?ac=videolist&wd=关键词`
 - 详情接口: `https://example.com/api.php/provide/vod/?ac=detail&ids=视频ID`
 
@@ -158,7 +158,7 @@ MalinTV 支持标准的苹果 CMS V10 API 格式。添加自定义 API 时需遵
 
 ## ⚠️ 免责声明
 
-MalinTV 仅作为视频搜索工具，不存储、上传或分发任何视频内容。所有视频均来自第三方 API 接口提供的搜索结果。如有侵权内容，请联系相应的内容提供方。
+LibreTV 仅作为视频搜索工具，不存储、上传或分发任何视频内容。所有视频均来自第三方 API 接口提供的搜索结果。如有侵权内容，请联系相应的内容提供方。
 
 本项目开发者不对使用本项目产生的任何后果负责。使用本项目时，您必须遵守当地的法律法规。
 

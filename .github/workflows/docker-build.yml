@@ -1,4 +1,4 @@
-name: Build MalinTV image
+name: Build LibreTV image
 
 on:
   workflow_run:
@@ -9,9 +9,9 @@ on:
 
 jobs:
   build:
-    name: Build MalinTV image
+    name: Build LibreTV image
     runs-on: ubuntu-latest
-    if: (github.event.workflow_run.conclusion == 'success' && github.repository == 'MalinSpark/MalinTV') || (github.repository == 'bestZwei/Malintv')
+    if: (github.event.workflow_run.conclusion == 'success' && github.repository == 'LibreSpark/LibreTV') || (github.repository == 'bestZwei/Libretv')
 
     steps:
       - name: Check out repository
@@ -26,12 +26,12 @@ jobs:
       - name: Set Docker image tag based on repository
         id: set-tag
         run: |
-          if [ "${{ github.repository }}" = "MalinSpark/MalinTV" ]; then
-            echo "IMAGE_NAME=Malintv" >> $GITHUB_OUTPUT
-            echo "TAGS=${{ secrets.DOCKER_USERNAME }}/Malintv:latest,${{ secrets.DOCKER_USERNAME }}/Malintv:${{ steps.version.outputs.VERSION }}" >> $GITHUB_OUTPUT
+          if [ "${{ github.repository }}" = "LibreSpark/LibreTV" ]; then
+            echo "IMAGE_NAME=Libretv" >> $GITHUB_OUTPUT
+            echo "TAGS=${{ secrets.DOCKER_USERNAME }}/Libretv:latest,${{ secrets.DOCKER_USERNAME }}/Libretv:${{ steps.version.outputs.VERSION }}" >> $GITHUB_OUTPUT
           else
-            echo "IMAGE_NAME=Malintv-beta" >> $GITHUB_OUTPUT
-            echo "TAGS=${{ secrets.DOCKER_USERNAME }}/Malintv-beta:latest" >> $GITHUB_OUTPUT
+            echo "IMAGE_NAME=Libretv-beta" >> $GITHUB_OUTPUT
+            echo "TAGS=${{ secrets.DOCKER_USERNAME }}/Libretv-beta:latest" >> $GITHUB_OUTPUT
           fi
 
       - name: Set up Docker QEMU
@@ -46,7 +46,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push MalinTV image
+      - name: Build and push LibreTV image
         uses: docker/build-push-action@v6.14.0
         with:
           context: .

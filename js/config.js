@@ -13,8 +13,8 @@ const PASSWORD_CONFIG = {
 
 // 网站信息配置
 const SITE_CONFIG = {
-    name: 'MalinTV',
-    url: 'https://Malintv.is-an.org',
+    name: 'LibreTV',
+    url: 'https://Libretv.is-an.org',
     description: '免费在线视频搜索与观看平台',
     logo: 'image/logo.png',
     version: '1.0.3'
